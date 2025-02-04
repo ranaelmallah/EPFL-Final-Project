@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="../static/css/about.css">
+</head>
+<body>
+    
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="logo">
+                    <h1>StaySwich<span class="dot">.</span></h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="{{url_for("index")}}" class="active">Home</a></li>
+                    <li><a href="{{url_for("about")}}">About</a></li>
+                  
+                </ul>
+                <a href="{{url_for('profile')}}" class="profile-btn"><i class="fa-solid fa-user"></i></a>
+            </nav>
+            <section class="hero">
+                <div class="hero-text">
+                    <!-- <span class="badge"> Discover Who We Are ..?</span> -->
+                    <h1>Find Your
+                        <br> Perfect House Swap</h1>
+                    <p>Connecting homeowners to swap homes for vacations, long stays, or new experiences.</p>
+                </div>
+                <!-- <div class="hero-image">
+                    <img src="../static/imges/about.jpeg" alt="House Swap">
+                </div> -->
+            </section>
+        </header>
+    
+    
+        <section class="about-content">
+            <div class="about-text">
+                <h2>Who We Are ..?</h2>
+                <p>House Swap Log is designed to help homeowners  connect and exchange homes seamlessly. Our platform enables you to list your home, find potential swaps, and manage your listings all in one place.</p>
+                <h3>Why Choose House Swapping?</h3>
+                <ul>
+                    <li>💰 Save money on travel accommodations</li>
+                    <li>🌍 Experience living like a local</li>
+                    <li>🔄 Exchange homes with trust & security</li>
+                </ul>
+            </div>
+            <div class="testimonial">
+                <blockquote>“Swapping homes through this platform was the best travel decision I’ve ever made. I got to experience a new city without hotel costs!”</blockquote>
+                <p>- Sarah L., Verified Swapper</p>
+            </div>
+        </section>
+    
+        <section class="awards">
+            <h2>Our Achievements</h2>
+            <ul>
+                <li>🏆 Best Home Exchange Platform - 2025</li>
+                <li>🌟 Trusted by 10,000+ Homeowners</li>
+                <li>📍 Featured in Travel Weekly</li>
+            </ul>
+        </section>
+    
+        <footer>
+            <p>© 2025 House Swap Log. All rights reserved.</p>
+        </footer>
+    </body>
+    </html>
+    
+</body>
+</html>
