@@ -1,0 +1,177 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5efe7;
+    color: #333;
+}
+
+/* Navigation */
+header {
+    background: #c5b4a4;
+    background-attachment: fixed;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    /* position: fixed;*/
+    /* position: sticky;
+    top: 0; */
+    /* z-index:10;  */
+}
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: #c5b4a4;
+    font-family: "Arial", sans-serif;
+    position: sticky;
+    top: 0;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    font-style: italic;
+    color: black;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-links a.active {
+    background: #e6ddd2;
+    padding: 8px 15px;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: #555;
+}
+.profile-btn {
+    background-color: var(--buttons-color);
+    color: white;
+    padding: 8px 10px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.profile-btn:hover {
+    background-color: var(--primary-color);
+}
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 50px;
+    background: #c5b4a4;
+   
+}
+
+.hero-text h1 {
+    font-size: 70px;
+    margin-bottom: 10px;
+    color: black;
+    font-weight: 700;
+}
+.hero-text p {
+    font-size: 18px;
+    color: #584f4a;
+}
+.badge {
+    background: #B08E75;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+/* About Section */
+.about-content {
+    display: flex;
+    padding: 50px;
+    background: #e6ddd2;
+   
+    /* text-align: center; */
+}
+.about-text {
+    width: 60%;
+}
+.about-text h2 {
+    font-size: 28px;
+}
+.about-text ul {
+    list-style: none;
+    padding: 0;
+}
+.about-text li {
+    margin: 10px 0;
+}
+
+/* Testimonial */
+.testimonial {
+    width: 40%;
+    background: #c5b4a4;
+    padding: 20px;
+    border-radius: 10px;
+}
+.testimonial blockquote {
+    font-style: italic;
+    font-size: 18px;
+}
+
+/* Awards Section */
+.awards {
+    padding: 50px;
+    background: #f5efe7;
+}
+.awards h2 {
+    text-align: center;
+    font-size: 24px;
+}
+.awards ul {
+    list-style: none;
+    text-align: center;
+}
+.awards li {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #fff;
+    color: #555;
+}
