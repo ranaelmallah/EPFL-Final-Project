@@ -1,0 +1,91 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background-color: #ded4ca;
+    color: rgb(2, 2, 2);
+    padding: 15px;
+    font-size: 24px;
+    border-radius: 8px;
+}
+
+/* Form */
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color:#ded4ca ;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    font-weight:700;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #c5b4a4;
+}
+
+/* Table */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #ded4ca;
+    color: rgb(2, 2, 2);
+}
+
+/* Action Buttons */
+.action-btn {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.edit-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
