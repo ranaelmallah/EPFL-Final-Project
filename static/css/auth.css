@@ -1,0 +1,282 @@
+
+ *{
+    /* outline: 2px solid red; */
+ }
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    background: url(../imges/download\ \(1\).jpeg) no-repeat center center/cover;
+    
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    width: 100%;
+    height: 100%;
+    background-color: #c5b4a4c5;
+    
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 50px;
+    background-color: #c5b4a4;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+	position: sticky;
+	top: 0;
+}
+
+.logo h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: black;
+
+}
+
+.logo .dot {
+    color: black;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links .active {
+    color:#a89382c9;
+}
+
+.profile-btn {
+    background-color:white;
+    color: #a89382;
+    padding: 8px 10px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.profile-btn:hover {
+    background-color: #e0d7ce;
+}
+.mask{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-box {
+    background: #e5dfd8ac;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 350px;
+}
+
+.logo {
+    font-size: 36px;
+    font-weight: bold;
+    color: #c5b4a4;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 24px;
+    color: #2c3e50;
+}
+
+p {
+    font-size: 14px;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+}
+label{
+    color: white;
+    text-align: start; margin-top: 10px;
+    display: block;
+}
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #c5b4a4;
+    border-radius: 5px;
+    outline: none;
+}
+
+.submit {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: #a89382;
+}
+.submit:disabled{
+    background-color: #a8938250;
+}
+
+button:hover {
+    background-color: #c5b4a4;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+ a {
+    color: #fefefe;
+    text-decoration: none;
+    margin-top: 1.5rem;
+}
+
+.options a:hover {
+    text-decoration: underline;
+}
+.error-message{
+    color: red;
+    font-size: 12px;
+    text-align: start;
+    display: none;
+}
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+/* Responsive Styles */
+/* For Tablets & Small Screens */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 0px 30px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .login-box {
+        width: 90%;
+        padding: 30px;
+    }
+}
+
+/* For Mobile Screens */
+@media (max-width: 768px) {
+    .navbar {
+        width: 100%;
+        padding: 15px 10px;
+        /* flex-direction: column; */
+    }
+
+    /* Hide nav links and show button */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #f7f5f3;
+        width: 100%;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        padding: 15px 0;
+        text-align: center;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    /* Show menu button */
+    .menu-toggle {
+        display: block;
+        color: #eee7e2;
+        background-color: transparent;
+        border: none;
+        font-size: 40px;
+    }
+
+    .container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .profile-btn {
+        font-size: 14px;
+        padding: 6px 8px;
+    }
+
+    .login-box {
+        width: 100%;
+        max-width: 350px;
+        padding: 25px;
+    }
+    
+
+    input, button {
+        font-size: 14px;
+    }
+}
+
+/* For Extra Small Screens */
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    .menu-toggle {
+        font-size: 30px;
+    }
+
+    .login-box {
+        width: 95%;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    input, button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .profile-btn {
+        font-size: 12px;
+        padding: 5px 7px;
+    }
+}
