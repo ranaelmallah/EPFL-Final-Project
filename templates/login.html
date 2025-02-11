@@ -1,13 +1,13 @@
-<!-- <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <link rel="stylesheet" href="../static/css/login.css">
+    <title>sign</title>
+     <!-- Font Awesome CDN -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../static/css/auth.css">
 </head>
 <body>
     <nav class="navbar">
@@ -15,63 +15,38 @@
             <h1>StaySwich<span class="dot">.</span></h1>
         </div>
         <ul class="nav-links">
-            <li><a href="{{url_for("index")}}" class="active">Home</a></li>
-            <li><a href="{{url_for("about")}}">About</a></li>
-          
-        </ul>
-        <a href="{{url_for('profile')}}" class="profile-btn"><i class="fa-solid fa-user"></i></a>
-    </nav>
-<div class="main">  	
-        <div class="login">
-            <form>
-                <label>  Login </small></label>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="pswd" placeholder="Password" required>
-                <button>Login</button>
-            </form>
-            <div class="haveAccout">
-                <a href="{{url_for('forgetpassword')}}">Forget password ?</a> <br>
-                <a href="{{url_for('signup')}}"> Create account ?</a>
-            </div>
-        </div>
-</div>
-</body>
-</html> -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - StaySwitch</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="../static/css/login.css">
-</head>
-<body>
-    <nav class="navbar">
-        <div class="logo">
-            <h1>StaySwitch<span class="dot">.</span></h1>
-        </div>
-        <ul class="nav-links">
-            <li><a href="{{url_for('index')}}" class="active">Home</a></li>
+            <li><a href="{{url_for('index')}}" >Home</a></li>
             <li><a href="{{url_for('about')}}">About</a></li>
+            <!-- <a href="{{url_for('auth.profile')}}" class="profile-btn active"><i class="fa-solid fa-user"></i></a> -->
         </ul>
-        <a href="{{url_for('profile')}}" class="profile-btn"><i class="fa-solid fa-user"></i></a>
+        <button class="menu-toggle" id="menuToggle">
+            <i class="fa-solid fa-bars"></i> 
+        </button>
     </nav>
+    <div class="container">
+        <div class="mask"> 
+            <div class="login-box">
+              
+                <h2>Login</h2>
+               
+                <form action='{{url_for('auth.login')}}' method="POST">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" placeholder="Example@gmail.com" required/>
+                    <span id="email-error" class="error-message"> email address not exist.</span>
+          
+                    <label for="password">password</label>
+                    <input type="password" name="password" placeholder="Password" required/>
+                    <span id="password-error" class="error-message">Password wrong.</span>
+          
+                    <input type="submit" value="Log In" class="submit"  />
+                  </form>
+                <div class="haveAccout">
+                    <a href="{{url_for('auth.signup')}}">Create Account?</a>
 
-    <div class="main">
-        <div class="login">
-            <form action="" method="POST">
-                <label for="email">Login</label>
-                <br>
-                <input type="email" name="email" id="email" placeholder="Email" required>
-                <input type="password" name="pswd" id="pswd" placeholder="Password" required>
-                <button type="submit">Login</button>
-            </form>
-            <div class="haveAccout">
-                <a href="{{url_for('forgetpassword')}}">Forgot password?</a><br>
-                <a href="{{url_for('signup')}}">Create an account</a>
+                </div>
             </div>
         </div>
     </div>
+    <script src="../static/js/login.js"></script>
 </body>
 </html>

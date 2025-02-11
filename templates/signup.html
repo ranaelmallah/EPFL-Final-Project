@@ -1,83 +1,55 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="../static/css/login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-</head>
-<body>
-	<div class="body"></div>
-	<nav class="navbar">
-		<div class="logo">
-			<h1>StaySwich<span class="dot">.</span></h1>
-		</div>
-		<ul class="nav-links">
-			<li><a href="{{url_for("index")}}" class="active">Home</a></li>
-			<li><a href="{{url_for("about")}}">About</a></li>
-		  
-		</ul>
-		<a href="{{url_for('profile')}}" class="profile-btn"><i class="fa-solid fa-user"></i></a>
-	</nav>
-    <div class="main">  	
-			<div class="signup">
-				<form>
-					<label >Sign up</label>
-					<input type="text" name="txt" placeholder="User name" required="">
-					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="passWord" placeholder="Password" required="">
-                    <input type="password" name="confirmPassWord" placeholder="confirm Password" required="">
-					<input type="date" name="Birthday" placeholder="Birthday" required>
-					<button>Sign up</button>
-				</form>
-                <div class="haveAccout">
-                    <a href="{{url_for('login')}}">already have an account?</a>
-
-                </div>
-			</div>
-</body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="../static/css/login.css">
-    <!-- Font Awesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>sign</title>
+     <!-- Font Awesome CDN -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../static/css/auth.css">
 </head>
 <body>
-    <!-- Fixed Navbar -->
     <nav class="navbar">
         <div class="logo">
             <h1>StaySwich<span class="dot">.</span></h1>
         </div>
         <ul class="nav-links">
-            <li><a href="{{url_for('index')}}" class="active">Home</a></li>
+            <li><a href="{{url_for('index')}}" >Home</a></li>
             <li><a href="{{url_for('about')}}">About</a></li>
+            <!-- <a href="{{url_for('auth.profile')}}" class="profile-btn active"><i class="fa-solid fa-user"></i></a> -->
         </ul>
-        <a href="{{url_for('profile')}}" class="profile-btn"><i class="fa-solid fa-user"></i></a>
+        <button class="menu-toggle" id="menuToggle">
+            <i class="fa-solid fa-bars"></i> <!-- FontAwesome icon -->
+        </button>
     </nav>
+    <div class="container">
+        <div class="mask"> 
+            <div class="login-box">
+              
+                <h2>Sign Up</h2>
+   
+               
+                <form id="signup-form" action="{{url_for('auth.signup')}}" method="POST">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" name="fullname" id="fullname" placeholder="Full Name" required />
+                    <span id="fullname-error" class="error-message">Please enter a valid full name.</span>
+          
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="Example@gmail.com" required />
+                    <span id="email-error" class="error-message">Please enter a valid email address.</span>
 
-    <!-- Signup Form Centered -->
-    <div class="main">  
-        <div class="signup">
-            <form>
-                <label>Sign Up</label>
-                <input type="text" name="txt" placeholder="User name" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="passWord" placeholder="Password" required>
-                <input type="password" name="confirmPassWord" placeholder="Confirm Password" required>
-                <input type="date" name="Birthday" placeholder="Birthday" required>
-                <button>Sign Up</button>
-            </form>
-            <div class="haveAccout">
-                <a href="{{url_for('login')}}">Already have an account?</a>
+                    <label for="Password">Password</label>
+                    <input type="password" name="password" id="password" placeholder="Password" required />
+                    <span id="password-error" class="error-message">Password must be at least 6 characters.</span> 
+                    <input type="submit" value="Sign Up" class="submit" disabled />
+                  </form>
+                <div class="haveAccout">
+                    <a href="{{url_for('auth.login')}}">already have an account?</a>
+
+                </div>
             </div>
         </div>
     </div>
+    <script src="../static/js/signup.js"></script>
 </body>
 </html>

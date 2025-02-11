@@ -11,27 +11,35 @@
         rel="stylesheet">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- bootstrap links -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/all.min.css">    
      <!-- style -->
     <link rel="stylesheet" href="../static/css/styles.css" >
+
 </head>
 <body>
  <!-- navnar -->
+ <!-- header -->
  <nav class="navbar">
     <div class="logo">
         <h1>StaySwich<span class="dot">.</span></h1>
     </div>
+ 
     <ul class="nav-links">
-        <li><a href="{{url_for("index")}}" class="active">Home</a></li>
-        <li><a href="{{url_for("about")}}">About</a></li>
-      
-    </ul>
-    <a href="{{url_for('profile')}}" class="profile-btn"><i class="fa-solid fa-user"></i></a>
+        <li><a href="{{url_for('index')}}"  class="active">Home</a></li>
+        <li><a href="{{url_for('about')}}">About</a></li>
+        <!-- <a href="{{url_for('auth.profile')}}" class="profile-btn"><i class="fa-solid fa-user"></i></a> -->
+        {% if session.get('logged_in') %}
+        <li><a href="{{ url_for('houses.dashboard') }}" class="profile-btn">
+            
+        </a></li>
+        <li><a href="{{ url_for('auth.logout') }}" class="logout-btn">Logout</a></li>
+    {% else %}
+        <li><a href="{{ url_for('auth.login') }}" class="login-btn">Login</a></li>
+    {% endif %}
+</ul>
+    <button class="menu-toggle" id="menuToggle">
+        <i class="fa-solid fa-bars"></i> 
+    </button>
 </nav>
-<!-- header -->
 <header class="hero">
     <div class="hero-content">
         <span class="badge"> Switch your house now !</span>
@@ -39,7 +47,7 @@
         <p>Easily swap homes with trusted owners and explore new destinations. <br> 
             List your home, connect with homeowners, and enjoy a hassle-free swapping experience..</p>
         <div class="buttons">
-            <a href="{{url_for("about")}}"class="btn secondary">Know More About us <span>→</span></a>
+            <a href="{{url_for('about')}}"class="btn secondary">Know More About us <span>→</span></a>
         </div>
     </div>
     <div class="hero-image">
@@ -47,85 +55,55 @@
     </div>
 </header>
 
- <section class="section">
+<section class="sectionTwo">
+    <h2>Available Houses for Swap</h2>
     <div class="container">
-        <div class="image-section">
-            <img src="../static/imges/userposts 1.jpeg" alt="Design Sketch">
-        </div>
-        <div class="content-section">
-            <!-- <span class="badge">Must Read</span> -->
-            <h1>The Ultimate Guide </h1>
-            <p>Discover the key elements of building a brand strategy that resonates, ever-evolving market.</p>
-            
-            <div class="author-info">
-                <img src="../static/imges/user1.jpg" alt="Author Photo" class="author-photo">
-                <div>
-                    <p><strong>Written by Sophia Lane</strong></p>
-                    <p>Marketing Consultant</p>
-                </div>
+        {% for house in houses %}
+        <div class="house-card">
+            <div class="image-section">
+                <img src="{{ house.image or '../static/images/house-building.jpg' }}" alt="House Image">
             </div>
-
-            <a href="#" class="btn">Strategy</a>
+            <div class="content-section">
+                <h2>{{ house.house_name }}</h2>
+                <p><strong>location :</strong> {{ house.location }}</p>
+                <p><strong>Contact:</strong> {{ house.Contact }}</p>
+                <p><strong>Description:</strong> {{ house.description }}</p>
+                <p><strong>Owner:</strong> {{ house.user }}</p>
+            </div>
         </div>
+        {% endfor %}
     </div>
-    <div class="container">
-        <div class="image-section">
-            <img src="../static/imges/userposts 1.jpeg" alt="Design Sketch">
-        </div>
-        <div class="content-section">
-            <!-- <span class="badge">Must Read</span> -->
-            <h1>The Ultimate Guide </h1>
-            <p>Discover the key elements of building a brand strategy that resonates, ever-evolving market.</p>
-            
-            <div class="author-info">
-                <img src="../static/imges/user1.jpg" alt="Author Photo" class="author-photo">
-                <div>
-                    <p><strong>Written by Sophia Lane</strong></p>
-                    <p>Marketing Consultant</p>
-                </div>
-            </div>
 
-            <a href="#" class="btn">Strategy</a>
-        </div>
-    </div><div class="container">
-        <div class="image-section">
-            <img src="../static/imges/userposts 1.jpeg" alt="Design Sketch">
-        </div>
-        <div class="content-section">
-            <!-- <span class="badge">Must Read</span> -->
-            <h1>The Ultimate Guide </h1>
-            <p>Discover the key elements of building a brand strategy that resonates, ever-evolving market.</p>
-            
-            <div class="author-info">
-                <img src="../static/imges/user1.jpg" alt="Author Photo" class="author-photo">
-                <div>
-                    <p><strong>Written by Sophia Lane</strong></p>
-                    <p>Marketing Consultant</p>
-                </div>
-            </div>
-
-            <a href="#" class="btn">Strategy</a>
-        </div>
-    </div><div class="container">
-        <div class="image-section">
-            <img src="../static/imges/userposts 1.jpeg" alt="Design Sketch">
-        </div>
-        <div class="content-section">
-            <!-- <span class="badge">Must Read</span> -->
-            <h1>The Ultimate Guide </h1>
-            <p>Discover the key elements of building a brand strategy that resonates, ever-evolving market.</p>
-            
-            <div class="author-info">
-                <img src="../static/imges/user1.jpg" alt="Author Photo" class="author-photo">
-                <div>
-                    <p><strong>Written by Sophia Lane</strong></p>
-                    <p>Marketing Consultant</p>
-                </div>
-            </div>
-
-            <a href="#" class="btn">Strategy</a>
-        </div>
-    </div>
  </section>
+ 
+ <footer class="footer">
+    <div class="quick-links">
+        <a href="#">Home</a> |
+        <a href="#">About Us</a> |
+        <a href="#">List Your Home</a> |
+        <a href="#">Contact</a>
+    </div>
+    <div class="contact-info">
+        <p>Email: info@stayswitch.com | Phone: +1 (123) 456-7890</p>
+    </div>
+    <div class="social-media">
+        <a href="#">Facebook</a> |
+        <a href="#">Twitter</a> |
+        <a href="#">Instagram</a> |
+        <a href="#">LinkedIn</a>
+    </div>
+    <div class="legal">
+        <a href="#">Privacy Policy</a> |
+        <a href="#">Terms of Service</a> |
+        <a href="#">Cookie Policy</a>
+    </div>
+    <div class="copyright">
+        <p>© 2025 StaySwitch. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Display House Listings -->
+</main>
+<script src="../static/js/main.js"></script>
 </body>
 </html>

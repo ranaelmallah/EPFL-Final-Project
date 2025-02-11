@@ -12,28 +12,36 @@
 <body>
     
     <body>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>StaySwich<span class="dot">.</span></h1>
+            </div>
+         
+            <ul class="nav-links">
+                <li><a href="{{url_for('index')}}"  >Home</a></li>
+                <li><a href="{{url_for('about')}}" class="active">About</a></li>
+                {% if session.get('logged_in') %}
+                <li><a href="{{ url_for('houses.dashboard') }}" class="profile-btn">
+                    
+                </a></li>
+                <li><a href="{{ url_for('auth.logout') }}" class="logout-btn">Logout</a></li>
+            {% else %}
+                <li><a href="{{ url_for('auth.login') }}" class="login-btn">Login</a></li>
+            {% endif %}
+            </ul>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fa-solid fa-bars"></i> <!-- FontAwesome icon -->
+            </button>
+        </nav>
         <header>
-            <nav class="navbar">
-                <div class="logo">
-                    <h1>StaySwich<span class="dot">.</span></h1>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="{{url_for("index")}}" class="active">Home</a></li>
-                    <li><a href="{{url_for("about")}}">About</a></li>
-                  
-                </ul>
-                <a href="{{url_for('profile')}}" class="profile-btn"><i class="fa-solid fa-user"></i></a>
-            </nav>
             <section class="hero">
                 <div class="hero-text">
-                    <!-- <span class="badge"> Discover Who We Are ..?</span> -->
+                  
                     <h1>Find Your
                         <br> Perfect House Swap</h1>
                     <p>Connecting homeowners to swap homes for vacations, long stays, or new experiences.</p>
                 </div>
-                <!-- <div class="hero-image">
-                    <img src="../static/imges/about.jpeg" alt="House Swap">
-                </div> -->
+
             </section>
         </header>
     
@@ -41,12 +49,13 @@
         <section class="about-content">
             <div class="about-text">
                 <h2>Who We Are ..?</h2>
-                <p>House Swap Log is designed to help homeowners  connect and exchange homes seamlessly. Our platform enables you to list your home, find potential swaps, and manage your listings all in one place.</p>
+                <p>House Swap Log is designed to help homeowners <br> connect and exchange homes seamlessly. <br>
+                     Our platform enables you to list your home,<br> find potential swaps, and manage your listings all in one place.</p>
                 <h3>Why Choose House Swapping?</h3>
                 <ul>
-                    <li>💰 Save money on travel accommodations</li>
-                    <li>🌍 Experience living like a local</li>
-                    <li>🔄 Exchange homes with trust & security</li>
+                    <li> Save money on travel accommodations</li>
+                    <li> Experience living like a local</li>
+                    <li> Exchange homes with trust & security</li>
                 </ul>
             </div>
             <div class="testimonial">
@@ -58,17 +67,16 @@
         <section class="awards">
             <h2>Our Achievements</h2>
             <ul>
-                <li>🏆 Best Home Exchange Platform - 2025</li>
-                <li>🌟 Trusted by 10,000+ Homeowners</li>
-                <li>📍 Featured in Travel Weekly</li>
+                <li> Best Home Exchange Platform - 2025</li>
+                <li> Trusted by 10,000+ Homeowners</li>
+                <li> Featured in Travel Weekly</li>
             </ul>
         </section>
     
         <footer>
             <p>© 2025 House Swap Log. All rights reserved.</p>
         </footer>
-    </body>
-    </html>
+ <script src="../static/js/main.js"></script>
     
 </body>
 </html>

@@ -3,158 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>House Listings - CRUD</title>
-    <link rel="stylesheet" href="../static/css/dashboard.css">
-    <!-- Font Awesome for Icons -->
+    <title>Manage Houses</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../static/css/dashboard.css">
 </head>
 <body>
 
-    <header>
-        <h1>Manage Your House Listings</h1>
-    </header>
-    
-    <main>
-        <!-- Add New House Listing -->
-        <form id="houseForm">
-            <input type="text" id="houseName" placeholder="House Name" required>
-            <input type="text" id="location" placeholder="Location" required>
-            <input type="text" id="description" placeholder="Description" required>
-            <input type="file" id="houseImage" accept="image/*">
-            <button type="submit" id="submitHouse">Add Your House</button>
-        </form>
-        
-        <!-- Display House Listings -->
+    <nav class="navbar">
+        <div class="logo">
+            <h1>StaySwich<span class="dot">.</span></h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="{{url_for('index')}}">Home</a></li>
+            <li><a href="{{url_for('about')}}">About</a></li>
+            {% if session.get('logged_in') %}
+            <li><a href="{{ url_for('houses.dashboard') }}" class="profile-btn">
+                
+            </a></li>
+            <li><a href="{{ url_for('auth.logout') }}" class="logout-btn">Logout</a></li>
+        {% else %}
+            <li><a href="{{ url_for('auth.login') }}" class="login-btn">Login</a></li>
+        {% endif %}
+        </ul>
+         <button class="menu-toggle" id="menuToggle">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+    </nav>
+
+    <div class="container">
+        <div class="header">
+            <h2>Manage My Listings</h2>
+            <button class="add-btn" onclick="openModal('addModal')">Add New House</button>
+        </div>
+
         <table>
             <thead>
                 <tr>
-                    <th>Image</th>
+                    <th>House Image</th>
                     <th>House Name</th>
+                    <th>Contact</th>
                     <th>Location</th>
                     <th>Description</th>
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody id="houseList"></tbody>
+            <tbody id="houseTableBody">
+                {% for house in houses %}
+                <tr>
+                    <td><img src="{{house.Image}}" alt=""></td>
+                    <td>{{ house.house_name }}</td>
+                    <td>{{ house.contact }}</td>
+                    <td>{{ house.location }}</td>
+                    <td>{{ house.description }}</td>
+                    <td>
+                        <button class="delete-btn" data-id="{{ house.id }}">Delete</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
         </table>
-    </main>
+    </div>
+
+    <!-- Add House Modal -->
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addModal')">&times;</span>
+            <h2>Add New House</h2>
+            <form id="houseForm">
+                <input type="text" name="house_name" placeholder="House Name" required>
+                <input type="text" name="contact" placeholder="Contact" required>
+                <input type="text" name="location" placeholder="Location" required>
+                <textarea name="description" placeholder="Description" required></textarea>
+                <input type="text" name="image" placeholder="Image URL">
+                <button type="submit">Add House</button>
+            </form>
+        </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>House Image</th>
+                        <th>House Name</th>
+                        <th>Contact</th>
+                        <th>Location</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="houseTableBody">
+                    {% for house in houses %}
+                    <tr>
+                        <td><img src={{house.house_image}} alt=""></td>
+                        <td>{{ house.house_name }}</td>
+                        <td>{{ house.contact }}</td>
+                        <td>{{ house.location }}</td>
+                        <td>{{ house.description }}</td>
+                        <td>
+                            <button class="edit-btn" data-id="{{ house.id }}" 
+                            data-name="{{ house.house_name }}" 
+                            data-contact="{{ house.contact }}" 
+                            data-location="{{ house.location }}" 
+                            data-description="{{ house.description }}" 
+                            data-image="{{ house.image }}">Edit</button>
+                            <button class="delete-btn" data-id="{{ house.id }}">Delete</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            </form>
+        </div>
+    </div>
+
     
-    <script src="../static/js/dashbord.js" ></script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>House Swap Log</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            padding: 20px;
-        }
-        h1 {
-            color: #2c3e50;
-        }
-        .post {
-            background-color: #ffffff;
-            border: 1px solid #ddd;
-            padding: 20px;
-            margin-bottom: 15px;
-            border-radius: 5px;
-        }
-        .btn {
-            background-color: #3498db;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .btn:hover {
-            background-color: #2980b9;
-        }
-    </style>
-</head>
-<body>
-    <h1>House Swap Listings</h1>
-    <div id="posts"></div>
-    <button class="btn" onclick="createPost()">Create Post</button>
 
-    <script>
-        // Fetch and display posts
-        function loadPosts() {
-            fetch('/api/posts')
-                .then(response => response.json())
-                .then(posts => {
-                    const postsContainer = document.getElementById('posts');
-                    postsContainer.innerHTML = '';
-                    posts.forEach(post => {
-                        const postDiv = document.createElement('div');
-                        postDiv.classList.add('post');
-                        postDiv.innerHTML = `
-                            <h2>${post.title}</h2>
-                            <p>${post.description}</p>
-                            <p><strong>Availability:</strong> ${post.availability}</p>
-                            <p><strong>Contact:</strong> ${post.contact}</p>
-                            <button class="btn" onclick="editPost(${post.id})">Edit</button>
-                            <button class="btn" onclick="deletePost(${post.id})">Delete</button>
-                        `;
-                        postsContainer.appendChild(postDiv);
-                    });
-                });
-        }
-
-        // Create new post
-        function createPost() {
-            const newPost = {
-                id: Date.now(),
-                title: "New House Listing",
-                description: "A brand new house to swap!",
-                availability: "Available soon",
-                contact: "contact@newhouse.com"
-            };
-            fetch('/api/posts', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(newPost)
-            })
-            .then(() => loadPosts());
-        }
-
-        // Edit post
-        function editPost(id) {
-            const updatedPost = {
-                id,
-                title: "Updated House Listing",
-                description: "Updated description.",
-                availability: "Available now",
-                contact: "contact@updatedhouse.com"
-            };
-            fetch(`/api/posts/${id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(updatedPost)
-            })
-            .then(() => loadPosts());
-        }
-
-        // Delete post
-        function deletePost(id) {
-            fetch(`/api/posts/${id}`, {
-                method: 'DELETE'
-            })
-            .then(() => loadPosts());
-        }
-
-        // Load posts on page load
-        window.onload = loadPosts;
-    </script>
+    <script src="../static/js/dashbord.js"></script>
 </body>
 </html>
