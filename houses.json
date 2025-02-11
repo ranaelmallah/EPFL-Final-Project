@@ -1,0 +1,101 @@
+[
+    {
+        "id": "28767d4e-276b-406a-9b1d-da71f3b8f5f9",
+        "house_name": "dfghjkl",
+        "contact": "34567890",
+        "location": ",,,,,,,,,,,,,",
+        "description": "\u064a\u064a\u064a\u064a\u064a\u064a\u064a\u064a\u064a\u064a\u064a\u064a\u064a\u064a\u064a\u064a\u064a\u064a\u064a",
+        "image": "https://i.pinimg.com/originals/06/42/d0/0642d0e7f0570c582e0ae1ce6ccc979a.jpg",
+        "user": "11@gmail.com"
+    },
+    {
+        "id": "67d485bf-1517-4f93-b859-5d76cc75145b",
+        "house_name": "dfghjkl",
+        "contact": "34567890",
+        "location": ",,,,,,,,,,,,,",
+        "description": "\u064a\u064a\u064a\u064a",
+        "image": "https://i.pinimg.com/originals/06/42/d0/0642d0e7f0570c582e0ae1ce6ccc979a.jpg",
+        "user": "11@gmail.com"
+    },
+    {
+        "id": "15ec5d2b-7c32-4fc0-b71d-6950062423b8",
+        "house_name": "dfghjkl",
+        "contact": "34567890",
+        "location": ",,,,,,,,,,,,,",
+        "description": "\u0642\u0642\u0642\u0642\u0642",
+        "image": "https://i.pinimg.com/originals/06/42/d0/0642d0e7f0570c582e0ae1ce6ccc979a.jpg",
+        "user": "11@gmail.com"
+    },
+    {
+        "id": "fec43538-9d26-4fdf-a318-b7988c21c90b",
+        "house_name": "dfghjkl",
+        "contact": "34567890",
+        "location": ",,,,,,,,,,,,,",
+        "description": "m",
+        "image": "https://i.pinimg.com/originals/06/42/d0/0642d0e7f0570c582e0ae1ce6ccc979a.jpg",
+        "user": "11@gmail.com"
+    },
+    {
+        "id": "ca16b6ac-998a-49a8-9862-3041ea43d640",
+        "house_name": "dfghjkl",
+        "contact": "34567890",
+        "location": ",,,,,,,,,,,,,",
+        "description": "eeeeeeeeeeeeeee",
+        "image": "https://i.pinimg.com/originals/06/42/d0/0642d0e7f0570c582e0ae1ce6ccc979a.jpg",
+        "user": "11@gmail.com"
+    },
+    {
+        "id": "44f8512f-f96b-4fe7-a322-b0d9e2011802",
+        "house_name": "cddddddd",
+        "contact": "2222222222",
+        "location": "sdddddd",
+        "description": "ssss",
+        "image": "eeeeee",
+        "user": "11@gmail.com"
+    },
+    {
+        "id": "af5b5ffa-2edd-4884-9acc-7cd641f872e0",
+        "house_name": "cl,lllla",
+        "contact": "dlllll",
+        "location": "sllllll",
+        "description": "dddddddd",
+        "image": "https://i.pinimg.com/originals/06/42/d0/0642d0e7f0570c582e0ae1ce6ccc979a.jpg",
+        "user": "11@gmail.com"
+    },
+    {
+        "id": "381fd228-b1f2-49f3-b0c2-9c0432824343",
+        "house_name": "\u0635\u0635\u0635",
+        "contact": "34567890",
+        "location": "\u0635\u0635\u0635\u0635",
+        "description": "\u0635\u0635\u0635",
+        "image": "\u0635\u0635\u0635\u0635\u0635",
+        "user": "11@gmail.com"
+    },
+    {
+        "id": "48075bb0-577b-4c4b-840f-ef00f6188fa3",
+        "house_name": "\u0635\u0635\u0635",
+        "contact": "34567890",
+        "location": "\u0635\u0635\u0635\u0635",
+        "description": "ccc",
+        "image": "\u0635\u0635\u0635\u0635\u0635",
+        "user": "11@gmail.com"
+    },
+    {
+        "id": "8efcbe9d-a0c4-44f1-ba81-f5fb07f94df8",
+        "house_name": "\u0635\u0635\u0635",
+        "contact": "34567890",
+        "location": "\u0635\u0635\u0635\u0635",
+        "description": "w",
+        "image": "\u0635\u0635\u0635\u0635\u0635",
+        "user": "11@gmail.com"
+    },
+    {
+        "id": "068b4321-e96b-448c-a528-853ee05d8d53",
+        "house_name": "cozy house",
+        "contact": "123344",
+        "location": "cairo",
+        "description": "good house",
+        "image": "https://th.bing.com/th/id/OIP.g0acA9PoZdbfbpGQ4W4qYgHaE8?w=238&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+        "user": "11@gmail.com"
+    }
+]
